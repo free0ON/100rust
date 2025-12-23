@@ -1,4 +1,4 @@
-// Customize the `dev` profile to wrap around on overflow.
+// Customize the `dev` profile to wrap around on overflo.
 // Check Cargo's documentation to find out the right syntax:
 // https://doc.rust-lang.org/cargo/reference/profiles.html
 //
@@ -6,6 +6,9 @@
 // at the root of the repository, not in the `Cargo.toml` of the exercise.
 
 pub fn factorial(n: u32) -> u32 {
+    if n == 0 {
+        return 1;
+    }
     let mut result = 1;
     for i in 1..=n {
         result *= i;
