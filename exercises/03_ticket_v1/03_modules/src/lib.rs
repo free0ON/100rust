@@ -1,7 +1,7 @@
 mod helpers {
     // TODO: Make this code compile, either by adding a `use` statement or by using
     //  the appropriate path to refer to the `Ticket` struct.
-
+    use super::Ticket;
     fn create_todo_ticket(title: String, description: String) -> Ticket {
         Ticket::new(title, description, "To-Do".into())
     }
@@ -36,5 +36,23 @@ impl Ticket {
             description,
             status,
         }
+    }
+}
+
+#[cfg(test)]
+
+mod test {
+    use super::*;
+
+    #[test]
+    fn test_ticket() {
+        let ticket = Ticket::new(
+            "Title".to_string(),
+            "Description".to_string(),
+            "To-Do".to_string(),
+        );
+        assert_eq!(ticket.title, "Title");
+        assert_eq!(ticket.description, "Description");
+        assert_eq!(ticket.status, "To-Do");
     }
 }
